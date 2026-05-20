@@ -231,6 +231,74 @@ tbody tr:hover{background:var(--surface2)}
   .info-grid{grid-template-columns:1fr}
   .hero-pills{display:none}
 }
+
+/* ===== FINANCE TAB ===== */
+#finance-view { font-family: 'Inter', sans-serif; }
+
+/* Password Gate */
+.fin-gate { position:fixed;inset:0;background:rgba(7,40,50,0.92);backdrop-filter:blur(20px);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s }
+.fin-gate.open { opacity:1;pointer-events:all }
+.fin-gate-box { background:#fff;border-radius:24px;padding:3rem;width:100%;max-width:420px;text-align:center;box-shadow:0 40px 80px rgba(0,0,0,0.3) }
+.fin-gate-icon { width:64px;height:64px;background:linear-gradient(135deg,#005F72,#00A8C0);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:28px }
+.fin-gate-title { font-size:20px;font-weight:700;color:#0D2B35;margin-bottom:6px;letter-spacing:-0.3px }
+.fin-gate-sub { font-size:13px;color:#7BA5B4;margin-bottom:1.75rem;line-height:1.5 }
+.fin-gate-input { width:100%;padding:14px 18px;border:2px solid #DDF0F5;border-radius:12px;font-size:15px;font-family:'Inter',sans-serif;color:#0D2B35;outline:none;text-align:center;letter-spacing:0.2em;font-weight:600;transition:border-color 0.2s;background:#F0F7F9 }
+.fin-gate-input:focus { border-color:#00788C;background:#fff }
+.fin-gate-input.error { border-color:#C0303A;animation:shake 0.3s }
+.fin-gate-btn { width:100%;padding:14px;background:linear-gradient(135deg,#005F72,#00A8C0);border:none;border-radius:12px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;margin-top:1rem;transition:opacity 0.2s;font-family:'Inter',sans-serif }
+.fin-gate-btn:hover { opacity:0.9 }
+.fin-gate-err { font-size:12px;color:#C0303A;margin-top:8px;min-height:16px;font-weight:500 }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+
+/* Finance Hero */
+.fin-hero { background:linear-gradient(140deg,#002B38 0%,#004D5F 35%,#006878 65%,#009AB0 100%);border-radius:24px;padding:2.5rem;margin-bottom:2rem;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,60,80,0.25),0 4px 16px rgba(0,60,80,0.15) }
+.fin-hero::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 85% 30%,rgba(0,200,220,0.15),transparent),radial-gradient(ellipse 40% 50% at 10% 80%,rgba(0,120,160,0.12),transparent);pointer-events:none }
+.fin-hero::after { content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(0,168,192,0.07);pointer-events:none }
+.fin-hero-label { font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px }
+.fin-hero-title { font-size:28px;font-weight:700;color:#fff;letter-spacing:-0.5px;margin-bottom:6px }
+.fin-hero-sub { font-size:14px;color:rgba(255,255,255,0.6) }
+.fin-hero-kpis { display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:2rem }
+.fin-kpi { background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.25rem 1.4rem;backdrop-filter:blur(8px);transition:background 0.2s }
+.fin-kpi:hover { background:rgba(255,255,255,0.11) }
+.fin-kpi-label { font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px }
+.fin-kpi-val { font-size:24px;font-weight:700;color:#fff;letter-spacing:-0.5px;line-height:1 }
+.fin-kpi-val.green { color:#4DFFB4 }
+.fin-kpi-val.amber { color:#FFD166 }
+.fin-kpi-sub { font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px }
+
+/* Scroll sections */
+.fin-section { margin-bottom:3rem;opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease }
+.fin-section.visible { opacity:1;transform:translateY(0) }
+.fin-section-header { display:flex;align-items:center;gap:12px;margin-bottom:1.25rem }
+.fin-section-icon { width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0 }
+.fin-section-title { font-size:16px;font-weight:700;color:#0D2B35;letter-spacing:-0.2px }
+.fin-section-sub { font-size:12px;color:#7BA5B4;margin-top:2px }
+.fin-card { background:#fff;border:1px solid var(--border);border-radius:20px;padding:1.75rem;box-shadow:0 2px 8px rgba(0,80,100,0.06),0 8px 24px rgba(0,80,100,0.05) }
+
+/* Chart containers */
+.chart-wrap { position:relative;height:280px }
+.chart-wrap canvas { width:100%!important }
+
+/* Tracker table */
+.fin-table { width:100%;border-collapse:collapse }
+.fin-table th { text-align:left;padding:10px 14px;font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border);background:var(--surface2) }
+.fin-table td { padding:13px 14px;border-bottom:1px solid var(--border);font-size:13px }
+.fin-table tr:last-child td { border-bottom:none }
+.fin-table tbody tr:hover { background:var(--surface2) }
+.fin-table .amt { font-weight:600;color:#1A7A5E;font-size:14px }
+.fin-table .total-row td { font-weight:700;background:linear-gradient(135deg,#E3F5EF,#D0F0E6);color:#1A7A5E;font-size:14px }
+
+/* System breakdown bars */
+.sys-bar-wrap { display:flex;flex-direction:column;gap:14px }
+.sys-bar-item { }
+.sys-bar-top { display:flex;justify-content:space-between;margin-bottom:5px;align-items:center }
+.sys-bar-name { font-size:13px;font-weight:500;color:#0D2B35 }
+.sys-bar-amt { font-size:13px;font-weight:600;color:#005F72 }
+.sys-bar-track { height:8px;background:#EBF4F7;border-radius:100px;overflow:hidden }
+.sys-bar-fill { height:100%;border-radius:100px;transition:width 1s cubic-bezier(0.4,0,0.2,1) }
+
+/* Badge */
+.draft-badge { display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:#FEF3C7;border:1px solid #FCD34D;border-radius:20px;font-size:11px;font-weight:600;color:#92400E;margin-left:10px }
 </style>
 </head>
 <body>
@@ -328,6 +396,7 @@ tbody tr:hover{background:var(--surface2)}
     <button class="tab active" data-tab="current" onclick="setTab('current')">Current <span class="tab-count" id="tc-current">0</span></button>
     <button class="tab" data-tab="historical" onclick="setTab('historical')">Historical <span class="tab-count" id="tc-historical">0</span></button>
     <button class="tab" data-tab="extract" onclick="setTab('extract')">Athabasca Extract <span class="tab-count" id="tc-extract">0</span></button>
+    <button class="tab" data-tab="finance" onclick="setTab('finance')" style="background:linear-gradient(135deg,#1A7A5E,#22A078);color:#fff;border-radius:8px">💰 IT Finance <span class="tab-count" style="background:rgba(255,255,255,0.25)">🔒</span></button>
   </div>
 
   <div id="card-view">
@@ -338,6 +407,8 @@ tbody tr:hover{background:var(--surface2)}
       <p>Try adjusting your search or filters</p>
     </div>
   </div>
+
+  <div id="finance-view" style="display:none"></div>
 
   <div id="table-view" style="display:none">
     <div class="table-wrap">
@@ -595,6 +666,313 @@ const now=new Date();
 document.getElementById('now-date').textContent=now.toLocaleDateString('en-CA',{weekday:'short',year:'numeric',month:'short',day:'numeric'});
 render();
 </script>
+<!-- Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+<!-- Finance Password Gate -->
+<div class="fin-gate" id="fin-gate">
+  <div class="fin-gate-box">
+    <div class="fin-gate-icon">🔐</div>
+    <div class="fin-gate-title">Restricted Access</div>
+    <div class="fin-gate-sub">This section contains confidential financial data.<br>Please enter the access code provided by<br><strong>Admin Shinoy Singh</strong></div>
+    <input class="fin-gate-input" id="fin-code-input" type="password" placeholder="Enter access code" maxlength="10" onkeydown="if(event.key==='Enter')checkFinCode()">
+    <div class="fin-gate-err" id="fin-gate-err"></div>
+    <button class="fin-gate-btn" onclick="checkFinCode()">Unlock Financial Dashboard</button>
+  </div>
+</div>
+
+<script>
+let finUnlocked = false;
+let chartsBuilt = false;
+
+function checkFinCode() {
+  const val = document.getElementById('fin-code-input').value.trim().toUpperCase();
+  const inp = document.getElementById('fin-code-input');
+  const err = document.getElementById('fin-gate-err');
+  if (val === 'LANDS26') {
+    finUnlocked = true;
+    document.getElementById('fin-gate').classList.remove('open');
+    document.getElementById('finance-view').style.display = 'block';
+    inp.value = '';
+    err.textContent = '';
+    inp.classList.remove('error');
+    setTimeout(() => { buildFinanceDashboard(); setupScrollAnimations(); }, 100);
+  } else {
+    inp.classList.add('error');
+    err.textContent = 'Incorrect code. Please contact Shinoy Singh.';
+    setTimeout(() => inp.classList.remove('error'), 400);
+  }
+}
+
+function buildFinanceDashboard() {
+  if (chartsBuilt) return;
+  chartsBuilt = true;
+
+  // DATA
+  const years = ['FY 2023-24', 'FY 2024-25', 'FY 2025-26', 'FY 2026-27 (Proj)', 'FY 2027-28 (Proj)'];
+  const licensing = [0, 0, 33000, 134600, 161520];
+  const maintenance = [2215.91, 33148.89, 17565.5, 21116, 26089];
+  const enhancements = [0, 0, 45000, 235000, 270750];
+  const totals = years.map((_,i) => licensing[i]+maintenance[i]+enhancements[i]);
+
+  const tracker = [
+    { desc: 'GLIMPS INI3 Form Changes', amt: 18800 },
+    { desc: 'iText Capacity Rental License', amt: 4216 },
+    { desc: 'GLIMPS Code Charge Code Calculation Logic', amt: 50000 },
+    { desc: 'SI Units Conversion (GLIMPS)', amt: 20000 },
+  ];
+  const trackerTotal = tracker.reduce((s,r) => s+r.amt, 0);
+  const fy2627budget = 390716;
+
+  const systems = [
+    { name: 'GLIMPS – Land Information Mgmt', fy2526: 12469.5, fy2627: 150000, color: '#00788C' },
+    { name: 'RSAP – Rangeland Stewardship Audit', fy2526: 4844.75, fy2627: 5814, color: '#1A7A5E' },
+    { name: 'ATP LURP / DMP Platform', fy2526: 33000, fy2627: 39600, color: '#005F72' },
+    { name: 'Synthesia – AI Video Platform', fy2526: 45000, fy2627: 45000, color: '#8B5CF6' },
+    { name: 'Simplerr – Process Simplification', fy2526: 0, fy2627: 50000, color: '#F59E0B' },
+    { name: 'FIRS – Forestry Incident Reporting', fy2526: 251.25, fy2627: 302, color: '#3B82F6' },
+  ];
+
+  const fmt = n => '$' + n.toLocaleString('en-CA', {minimumFractionDigits:0,maximumFractionDigits:0});
+  const pct = (a,b) => b ? Math.round((a/b)*100)+'%' : '—';
+
+  document.getElementById('finance-view').innerHTML = `
+    <div class="fin-hero">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <div style="width:38px;height:38px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px">💰</div>
+            <span class="draft-badge" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.7)">⚠ DRAFT · For Director Review</span>
+          </div>
+          <div class="fin-hero-title">IT Finance Dashboard</div>
+          <div class="fin-hero-sub" style="margin-top:4px">Lands Division · FY 2023–24 to 2027–28 · CAD</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:14px 20px;text-align:right">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px">5-Year Total Forecast</div>
+          <div style="font-size:26px;font-weight:700;color:#fff;letter-spacing:-0.5px">${fmt(totals.reduce((a,b)=>a+b,0))}</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px">FY 23-24 through FY 27-28</div>
+        </div>
+      </div>
+      <div class="fin-hero-kpis">
+        <div class="fin-kpi">
+          <div class="fin-kpi-label">FY 2023-24 Actual</div>
+          <div class="fin-kpi-val" style="font-size:20px">${fmt(2215.91)}</div>
+          <div class="fin-kpi-sub">Earliest confirmed year</div>
+        </div>
+        <div class="fin-kpi">
+          <div class="fin-kpi-label">FY 2024-25 Actual</div>
+          <div class="fin-kpi-val" style="font-size:20px">${fmt(33148.89)}</div>
+          <div class="fin-kpi-sub">↑ 1,395% from prior year</div>
+        </div>
+        <div class="fin-kpi">
+          <div class="fin-kpi-label">FY 2025-26 Actual</div>
+          <div class="fin-kpi-val" style="font-size:20px">${fmt(95565.5)}</div>
+          <div class="fin-kpi-sub">↑ 188% from prior year</div>
+        </div>
+        <div class="fin-kpi">
+          <div class="fin-kpi-label">FY 2026-27 Projected</div>
+          <div class="fin-kpi-val amber" style="font-size:20px">${fmt(390716)}</div>
+          <div class="fin-kpi-sub">↑ 309% — major growth year</div>
+        </div>
+        <div class="fin-kpi">
+          <div class="fin-kpi-label">Spent to Date (26-27)</div>
+          <div class="fin-kpi-val green" style="font-size:20px">${fmt(93016)}</div>
+          <div class="fin-kpi-sub">23.8% of ${fmt(390716)} budget</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fin-section" id="fs1">
+      <div class="fin-section-header">
+        <div class="fin-section-icon" style="background:#E0F5F8">📈</div>
+        <div>
+          <div class="fin-section-title">5-Year Expenditure Trend</div>
+          <div class="fin-section-sub">Historical actuals vs. multi-year projections by cost category</div>
+        </div>
+      </div>
+      <div class="fin-card">
+        <div class="chart-wrap"><canvas id="chart-trend"></canvas></div>
+      </div>
+    </div>
+
+    <div class="fin-section" id="fs2">
+      <div class="fin-section-header">
+        <div class="fin-section-icon" style="background:#E3F5EF">🥧</div>
+        <div>
+          <div class="fin-section-title">FY 2026-27 Budget Breakdown</div>
+          <div class="fin-section-sub">Projected spend distribution by cost category</div>
+        </div>
+      </div>
+      <div class="fin-card" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center">
+        <div class="chart-wrap" style="height:260px"><canvas id="chart-pie"></canvas></div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          ${[['Enhancements','#1A7A5E',235000],['Licensing','#00788C',134600],['Maintenance','#7BA5B4',21116]].map(([l,c,v]) => `
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:12px;height:12px;border-radius:3px;background:${c};flex-shrink:0"></div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:500;color:#0D2B35">${l}</div>
+              <div style="font-size:12px;color:#7BA5B4">${fmt(v)} · ${pct(v,390716)}</div>
+            </div>
+          </div>`).join('')}
+        </div>
+      </div>
+    </div>
+
+    <div class="fin-section" id="fs3">
+      <div class="fin-section-header">
+        <div class="fin-section-icon" style="background:#EBF4F7">🖥️</div>
+        <div>
+          <div class="fin-section-title">Spend by System — FY 2026-27</div>
+          <div class="fin-section-sub">Projected investment per platform and initiative</div>
+        </div>
+      </div>
+      <div class="fin-card">
+        <div class="sys-bar-wrap" id="sys-bars">
+          ${systems.map(s => `
+          <div class="sys-bar-item">
+            <div class="sys-bar-top">
+              <span class="sys-bar-name">${s.name}</span>
+              <span class="sys-bar-amt">${fmt(s.fy2627)}</span>
+            </div>
+            <div class="sys-bar-track">
+              <div class="sys-bar-fill" style="width:0%;background:${s.color}" data-target="${Math.round((s.fy2627/390716)*100)}"></div>
+            </div>
+          </div>`).join('')}
+        </div>
+      </div>
+    </div>
+
+    <div class="fin-section" id="fs4">
+      <div class="fin-section-header">
+        <div class="fin-section-icon" style="background:#FEF3C7">💳</div>
+        <div>
+          <div class="fin-section-title">FY 2026-27 Spending Tracker</div>
+          <div class="fin-section-sub">Actual expenditures logged to date · ${fmt(trackerTotal)} of ${fmt(fy2627budget)} budget (${pct(trackerTotal,fy2627budget)})</div>
+        </div>
+      </div>
+      <div class="fin-card" style="padding:0;overflow:hidden">
+        <div style="padding:1.25rem 1.75rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+          <div style="font-size:13px;color:var(--text2)">Budget remaining: <strong style="color:#1A7A5E">${fmt(297700)}</strong> · ${fmt(93016)} spent (23.8% of budget)</div>
+          <div style="background:#EBF4F7;border-radius:100px;height:8px;width:200px;overflow:hidden">
+            <div style="background:linear-gradient(90deg,#1A7A5E,#22A078);height:100%;width:${pct(trackerTotal,fy2627budget)};border-radius:100px"></div>
+          </div>
+        </div>
+        <table class="fin-table">
+          <thead><tr><th>#</th><th>Description</th><th style="text-align:right">Amount</th></tr></thead>
+          <tbody>
+            ${tracker.map((r,i) => `<tr><td style="color:var(--text3);font-weight:500">${String(i+1).padStart(2,'0')}</td><td>${r.desc}</td><td class="amt" style="text-align:right">${fmt(r.amt)}</td></tr>`).join('')}
+            <tr class="total-row"><td colspan="2" style="font-weight:700">Total Spent to Date</td><td style="text-align:right;font-weight:700">${fmt(trackerTotal)}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="fin-section" id="fs5">
+      <div class="fin-section-header">
+        <div class="fin-section-icon" style="background:#E3F5EF">📊</div>
+        <div>
+          <div class="fin-section-title">Year-over-Year Comparison</div>
+          <div class="fin-section-sub">FY 2025-26 actuals vs FY 2026-27 projections by system</div>
+        </div>
+      </div>
+      <div class="fin-card">
+        <div class="chart-wrap"><canvas id="chart-yoy"></canvas></div>
+      </div>
+    </div>
+
+    <div style="background:var(--surface2);border-radius:14px;padding:1rem 1.5rem;font-size:11px;color:var(--text3);line-height:1.7;border:1px solid var(--border);margin-bottom:2rem">
+      ⚠ <strong>Draft Notice:</strong> These figures are for internal planning purposes only. EDS and LAT/LAIRT show no confirmed F&P actuals — confirm cost-share arrangements with T&I. Synthesia and Simplerr figures are indicative and subject to formal vendor quotes. FY 2026-27 projections assume 20% annual growth on maintenance actuals.
+    </div>
+  `;
+
+  // CHART 1 — Trend
+  new Chart(document.getElementById('chart-trend'), {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        { label: 'Licensing', data: licensing, backgroundColor: '#00788C', borderRadius: 6 },
+        { label: 'Maintenance', data: maintenance, backgroundColor: '#7BA5B4', borderRadius: 6 },
+        { label: 'Enhancements', data: enhancements, backgroundColor: '#1A7A5E', borderRadius: 6 },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'top', labels: { font: { family: 'Inter', size: 11 }, color: '#3A6070', boxWidth: 10, borderRadius: 3 } } },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { family: 'Inter', size: 11 }, color: '#7BA5B4' } },
+        y: { stacked: true, grid: { color: 'rgba(0,120,140,0.06)' }, ticks: { font: { family: 'Inter', size: 11 }, color: '#7BA5B4', callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0)+'K' : v) } }
+      }
+    }
+  });
+
+  // CHART 2 — Pie
+  new Chart(document.getElementById('chart-pie'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Enhancements', 'Licensing', 'Maintenance'],
+      datasets: [{ data: [235000, 134600, 21116], backgroundColor: ['#1A7A5E', '#00788C', '#7BA5B4'], borderWidth: 0, hoverOffset: 8 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '68%',
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' $' + ctx.raw.toLocaleString() } } }
+    }
+  });
+
+  // CHART 3 — YoY
+  new Chart(document.getElementById('chart-yoy'), {
+    type: 'bar',
+    data: {
+      labels: systems.map(s => s.name.split('–')[0].trim()),
+      datasets: [
+        { label: 'FY 2025-26 Actual', data: systems.map(s => s.fy2526), backgroundColor: '#7BA5B4', borderRadius: 6 },
+        { label: 'FY 2026-27 Projected', data: systems.map(s => s.fy2627), backgroundColor: '#00788C', borderRadius: 6 },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'top', labels: { font: { family: 'Inter', size: 11 }, color: '#3A6070', boxWidth: 10, borderRadius: 3 } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { family: 'Inter', size: 10 }, color: '#7BA5B4' } },
+        y: { grid: { color: 'rgba(0,120,140,0.06)' }, ticks: { font: { family: 'Inter', size: 11 }, color: '#7BA5B4', callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0)+'K' : v) } }
+      }
+    }
+  });
+
+  // Animate bars
+  setTimeout(() => {
+    document.querySelectorAll('.sys-bar-fill').forEach(bar => {
+      bar.style.width = bar.dataset.target + '%';
+    });
+  }, 400);
+}
+
+function setupScrollAnimations() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fin-section').forEach(s => obs.observe(s));
+}
+
+// Override setTab to handle finance tab
+const _origSetTab = setTab;
+function setTab(tab) {
+  if (tab === 'finance') {
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === 'finance'));
+    ['card-view','table-view','finance-view'].forEach(id => {
+      document.getElementById(id).style.display = id === 'finance-view' && finUnlocked ? 'block' : 'none';
+    });
+    if (!finUnlocked) {
+      document.getElementById('fin-gate').classList.add('open');
+      setTimeout(() => document.getElementById('fin-code-input').focus(), 300);
+    }
+    return;
+  }
+  document.getElementById('finance-view').style.display = 'none';
+  _origSetTab(tab);
+}
+</script>
+
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-contact">
